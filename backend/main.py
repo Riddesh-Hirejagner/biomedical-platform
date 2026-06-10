@@ -4,6 +4,7 @@ from routers.auth import router as auth_router
 from routers.upload import router as upload_router
 from routers.segmentation import router as segmentation_router
 from routers.biomedical_ai import router as biomedical_router
+from routers.xray_ai import router as xray_router
 app = FastAPI()
 
 @app.get("/")
@@ -31,4 +32,9 @@ app.include_router(
     biomedical_router,
     prefix="/biomedical",
     tags=["Biomedical AI"]
+)
+
+app.include_router(
+    xray_router,
+    tags=["Chest Xray AI"]
 )
